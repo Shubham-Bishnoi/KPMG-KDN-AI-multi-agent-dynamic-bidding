@@ -1,0 +1,7 @@
+myenv/
+__pycache__/
+*.dylib
+*.pkl
+*.so
+*.h5
+data/bid_history.csv # If data is large, ignore it
