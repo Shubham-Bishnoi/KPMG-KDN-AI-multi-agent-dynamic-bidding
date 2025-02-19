@@ -1,6 +1,6 @@
 #  AI Multi-Agent Bidding System
 
-## ** Project Overview**
+##  Project Overview
 The **AI Multi-Agent Bidding System** is an advanced simulation framework that integrates **reinforcement learning (DQN)** with **multi-agent competitive bidding**. The system features:
 - **Autonomous Bidding Agents** 
 - **Dynamic Market Thresholds** 
@@ -8,34 +8,34 @@ The **AI Multi-Agent Bidding System** is an advanced simulation framework that i
 - **AI-Powered Bid Strategy Optimization** 
 - **Deep Q-Learning (DQN) for Smart Agent Decision Making**
 
-## ** Features**
-### ** AI-Powered Multi-Agent Bidding**
+## Features
+### AI-Powered Multi-Agent Bidding
 - Agents bid dynamically based on **market conditions** 
 - Implements **Deep Q-Learning (DQN)** for **reinforcement learning** 
 
-### ** Real-Time Bidding Dashboard (Streamlit)**
+###  Real-Time Bidding Dashboard (Streamlit)
 - Interactive **data visualization** with **Plotly & Seaborn** 
 - **Dark Mode & Light Mode** 
 - Real-time **bid activity feed** 
 
-### ** Market Threshold Dynamics**
+### Market Threshold Dynamics
 - Market adjusts based on **previous bid trends** 
 - Implements a **dynamic function for competitive thresholds**
 
-### ** Agent Performance Tracking**
+### Agent Performance Tracking
 - Agent leaderboard 🏆
 - Performance charts **(win rate, profit, and bid trends)** 
 
-### ** AI Chatbot for Bid Analysis**
+### AI Chatbot for Bid Analysis
 - AI chatbot analyzes bid trends and suggests improvements 
 
-### ** Live Bid Heatmaps & Animations**
+### Live Bid Heatmaps & Animations
 - **Animated bid history** 
 - **Winning bid heatmaps** 
 
 ---
 
-## ** Project Structure**
+##  Project Structure
 ```
 AI_MultiAgent_Bidding/
 │─── src/
@@ -65,7 +65,7 @@ AI_MultiAgent_Bidding/
 
 
 ## Workflow
-### ** AI Agent Bidding Process**
+###  AI Agent Bidding Process
 1. **Initialize Agents** - Multi-agents (AI-powered) enter the bidding system.
 2. **Generate Bids** - Each agent submits a bid based on market conditions.
 3. **Apply Reinforcement Learning** - Agents adjust bids based on **rewards & penalties**.
@@ -73,7 +73,7 @@ AI_MultiAgent_Bidding/
 5. **Winning Bid Selection** - The lowest bid wins the round.
 6. **Data Logging & Analysis** - Bid data is stored and analyzed for performance insights.
 
-### ** Streamlit Dashboard Workflow**
+###  Streamlit Dashboard Workflow
 1. **Load Bid History** - Fetch real-time data from `data/bid_history.csv`.
 2. **Data Filtering & Aggregation** - Process the latest bid values.
 3. **Generate Visuals** - Plotly, Seaborn & Matplotlib charts.
