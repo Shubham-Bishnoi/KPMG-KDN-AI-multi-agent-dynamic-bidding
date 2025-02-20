@@ -1,69 +1,70 @@
-#  AI Multi-Agent Bidding System
+## 🚀 AI Multi-Agent Bidding System
 
-##  Project Overview
-The **AI Multi-Agent Bidding System** is an advanced simulation framework that integrates **reinforcement learning (DQN)** with **multi-agent competitive bidding**. The system features:
-- **Autonomous Bidding Agents** 
-- **Dynamic Market Thresholds** 
-- **Real-time Visualization** 
-- **AI-Powered Bid Strategy Optimization** 
-- **Deep Q-Learning (DQN) for Smart Agent Decision Making**
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)
+![PyTorch](https://img.shields.io/badge/PyTorch-1.13%2B-red?style=for-the-badge&logo=pytorch)
+![OpenAI API](https://img.shields.io/badge/OpenAI-API-orange?style=for-the-badge&logo=openai)
+![Streamlit](https://img.shields.io/badge/Streamlit-Frontend-red?style=for-the-badge&logo=streamlit)
+![Deep Q-Network](https://img.shields.io/badge/Reinforcement%20Learning-DQN-green?style=for-the-badge&logo=deepmind)
+![LangChain](https://img.shields.io/badge/LangChain-Multi--Agent-purple?style=for-the-badge)
 
-## Features
-### AI-Powered Multi-Agent Bidding
-- Agents bid dynamically based on **market conditions** 
-- Implements **Deep Q-Learning (DQN)** for **reinforcement learning** 
+##  **Project Overview**
+The **AI Multi-Agent Bidding System** is a simulation framework that integrates **Deep Q-Network (DQN)** reinforcement learning with **multi-agent competitive bidding**. It enables **AI-powered bidding strategies**, **real-time data visualization**, and **AI chatbot-driven insights** for better decision-making.
 
-###  Real-Time Bidding Dashboard (Streamlit)
-- Interactive **data visualization** with **Plotly & Seaborn** 
-- **Dark Mode & Light Mode** 
-- Real-time **bid activity feed** 
+### **Core Features**
+###  AI-Powered Multi-Agent Bidding
+- Agents bid dynamically based on **market trends**.
+- Implements **Deep Q-Learning (DQN)** for optimal bid placement.
+- AI-powered **bid negotiation & price optimization**.
 
-### Market Threshold Dynamics
-- Market adjusts based on **previous bid trends** 
-- Implements a **dynamic function for competitive thresholds**
+### Real-Time Bidding Dashboard
+- Interactive **Streamlit dashboard**.
+- **Live bid monitoring** with **heatmaps & animations**.
 
-### Agent Performance Tracking
-- Agent leaderboard 🏆
-- Performance charts **(win rate, profit, and bid trends)** 
+### Market Threshold Adaptation
+- Market adjusts dynamically using **previous bid patterns**.
+- Implements **AI-driven market predictions**.
 
-### AI Chatbot for Bid Analysis
-- AI chatbot analyzes bid trends and suggests improvements 
+###  Agent Performance Tracking
+- Leaderboard for **top-performing agents**.
+- **Win rate, profit tracking, & bid evolution analysis**.
 
-### Live Bid Heatmaps & Animations
-- **Animated bid history** 
-- **Winning bid heatmaps** 
+### 💬 AI Chatbot for Bid Analysis
+- AI chatbot **analyzes bid trends** and **provides strategy recommendations**.
+- Uses **OpenAI GPT-4** for **expert bidding advice**.
+
+### Animated Bidding History
+- **Time-lapse visualizations** of bid evolution.
+- **Winning bid heatmaps** for strategic analysis.
 
 ---
 
-##  Project Structure
+## **Project Structure**
 ```
 AI_MultiAgent_Bidding/
 │─── src/
 │    ├── agents/
-│    │    ├── bidding_agent.py       # Reinforcement Learning Agent
-│    │    ├── negotiation_agent.py   # Agent with Negotiation Logic
+│    │    ├── bidding_agent.py       # AI-powered RL bidding agent
+│    │    ├── negotiation_agent.py   # Agent with negotiation strategies
 │    ├── market/
-│    │    ├── market_threshold.py    # Market Dynamics
+│    │    ├── market_threshold.py    # Market threshold logic
 │    ├── core/
-│    │    ├── bidding_simulation.py  # Main Simulation Engine
+│    │    ├── bidding_simulation.py  # Core bidding simulation
 │    ├── utils/
-│    │    ├── data_handler.py        # Data Storage & Management
+│    │    ├── data_handler.py        # Data handling & CSV storage
 │─── frontend/
-│    ├── app.py                      # Streamlit UI Dashboard
+│    ├── app.py                      # Streamlit dashboard
 │    ├── components/
-│    │    ├── visualization.py       # Graphs & Charts
+│    │    ├── visualization.py       # Charts & plots
 │─── data/
 │    ├── bid_history.csv             # Stores past bid data
 │─── tests/
-│    ├── test_agents.py              # Unit Tests
-│─── main.py                         # Entry Point
-│─── requirements.txt                 # Dependencies
+│    ├── test_agents.py              # Unit tests for agents
+│─── main.py                         # Main entry point for bidding simulation
+│─── requirements.txt                 # Dependencies list
 │─── README.md                        # Documentation
 ```
 
 ---
-
-
 ## Workflow
 ###  AI Agent Bidding Process
 1. **Initialize Agents** - Multi-agents (AI-powered) enter the bidding system.
@@ -74,13 +75,13 @@ AI_MultiAgent_Bidding/
 6. **Data Logging & Analysis** - Bid data is stored and analyzed for performance insights.
 
 ###  Streamlit Dashboard Workflow
-1. **Load Bid History** - Fetch real-time data from `data/bid_history.csv`.
+1. **Load Bid History** - Fetch real-time data from data/bid_history.csv.
 2. **Data Filtering & Aggregation** - Process the latest bid values.
 3. **Generate Visuals** - Plotly, Seaborn & Matplotlib charts.
 4. **Real-Time Updates** - Interactive refresh of bidding insights.
 5. **AI Chatbot** - AI-powered Q&A for bidding trends.
 
----
+
 
 ##  Tech Stack Used
 ### ** Backend (AI & ML)**
@@ -108,31 +109,31 @@ AI_MultiAgent_Bidding/
 
 ## ** Installation & Setup**
 ### **Step 1: Clone the Repository**
-```bash
+bash
 git clone https://github.com/Shubham-Bishnoi/KPMG-KDN-AI-multi-agent-dynamic-bidding.git
 cd AI_MultiAgent_Bidding
-```
+
 
 ### **Step 2: Set Up Virtual Environment**
-```bash
+bash
 python3 -m venv myenv
-source myenv/bin/activate 
-```
+source myenv/bin/activate
+
 
 ### **Step 3: Install Dependencies**
-```bash
+bash
 pip install -r requirements.txt
-```
+
 
 ### **Step 4: Run the AI Bidding Simulation**
-```bash
+bash
 python main.py
-```
+
 
 ### **Step 5: Launch the Dashboard**
-```bash
+bash
 streamlit run frontend/app.py
-```
+
 
 ---
 
@@ -169,9 +170,22 @@ Each agent makes a bid using **reinforcement learning (DQN)**, where:
 ###  5. Q-Value Evolution Tracking
 - Tracks **how agents learn bidding strategies**.
 
-###  6. AI Chatbot for Bid Insights
-- AI chatbot **answers questions** about bidding trends.
 
 
+## Contributing
+Want to improve the **AI bidding system**? Follow these steps:
+1. **Fork the repo** 📌
+2. **Create a feature branch** (`git checkout -b feature-branch`)
+3. **Commit changes** (`git commit -m "New feature added"`)
+4. **Push to GitHub** (`git push origin feature-branch`)
+5. **Submit a pull request** 
+
+## Future Enhancements
+✔ AI-powered **multi-agent negotiations** 
+✔ **Bid sentiment analysis** using **GPT-4** 
+✔ **Live bid-streaming** 
+✔ **Adaptive market manipulation detection** 
+
+---
 
 
