@@ -174,7 +174,7 @@ Each agent makes a bid using **reinforcement learning (DQN)**, where:
 
 ## Contributing
 Want to improve the **AI bidding system**? Follow these steps:
-1. **Fork the repo** 📌
+1. **Fork the repo** 
 2. **Create a feature branch** (`git checkout -b feature-branch`)
 3. **Commit changes** (`git commit -m "New feature added"`)
 4. **Push to GitHub** (`git push origin feature-branch`)

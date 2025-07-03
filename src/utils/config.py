@@ -10,7 +10,7 @@ class Config:
         "OPENAI_API_KEY": None,  # Will be loaded from .env if available
         "BIDDING_ROUNDS": 20,
         "INITIAL_THRESHOLD": 100,
-        "DATA_FILE": "data/bid_history.csv"  # ✅ Ensure single storage location
+        "DATA_FILE": "data/bid_history.csv"  #  Ensure single storage location
     }
 
     @staticmethod
@@ -39,7 +39,7 @@ class Config:
         """Saves configuration settings to a JSON file."""
         with open(Config.CONFIG_FILE, "w") as file:
             json.dump(config, file, indent=4)
-        print("✅ Configuration saved successfully.")
+        print(" Configuration saved successfully.")
 
 if __name__ == "__main__":
     config = Config.load_config()

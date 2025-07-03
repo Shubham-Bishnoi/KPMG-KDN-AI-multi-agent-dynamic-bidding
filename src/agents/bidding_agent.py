@@ -5,12 +5,14 @@ import torch.optim as optim
 import openai
 import os
 from dotenv import load_dotenv
+from src.utils.logger import logger
 
-# ✅ Load OpenAI API Key
+    
+#  Load OpenAI API Key
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-# ✅ Initialize OpenAI Client
+#  Initialize OpenAI Client
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
 
 class DQN(nn.Module):
@@ -38,6 +40,7 @@ class DQNBiddingAgent:
         self.reward = 0
         self.history = []
         self.ai_enabled = ai_enabled  
+        logger.info(f"Agent {self.name} initialized.")  #
 
     def generate_bid(self, market_threshold, rounds_remaining):
         """Generate a bid using deep Q-learning or AI-powered reasoning."""
@@ -48,13 +51,15 @@ class DQNBiddingAgent:
         else:
             bid = self.model(state).item()
 
-        # ✅ AI-Powered Bidding Optimization
+        #  AI-Powered Bidding Optimization
         if self.ai_enabled:
             ai_bid = self.get_ai_bid_strategy(market_threshold, rounds_remaining)
             if ai_bid is not None:
                 bid = (bid + ai_bid) / 2  
+        
+        logger.info(f"Agent {self.name} placed a bid: {bid}") #
 
-        return max(1, round(bid, 2))  # ✅ Ensuring valid bid
+        return max(1, round(bid, 2))  #  Ensuring valid bid
 
     def get_ai_bid_strategy(self, market_threshold, rounds_remaining):
         """AI-powered bidding strategy using OpenAI GPT."""
@@ -70,7 +75,7 @@ class DQNBiddingAgent:
                 ]
             )
 
-            # ✅ Ensure AI returns only numbers (avoids 'string to float' conversion errors)
+            # Ensure AI returns only numbers (avoids 'string to float' conversion errors)
             ai_bid = float(response.choices[0].message.content.strip())
             return ai_bid
 
@@ -104,7 +109,7 @@ class NegotiationAgent(DQNBiddingAgent):
         """Negotiate a lower bid strategically with AI support."""
         min_competitor_bid = min(competitor_bids.values())
 
-        # ✅ AI-powered negotiation support
+        #  AI-powered negotiation support
         ai_negotiation = self.get_ai_negotiation_strategy(min_competitor_bid, market_threshold)
         if ai_negotiation:
             return ai_negotiation

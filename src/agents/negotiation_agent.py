@@ -4,7 +4,7 @@ import openai
 from dotenv import load_dotenv
 from langchain.chat_models import ChatOpenAI
 
-# ✅ Load OpenAI API Key Securely
+# Load OpenAI API Key Securely
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 

@@ -7,8 +7,9 @@ import openai
 from dotenv import load_dotenv
 from src.agents.bidding_agent import DQNBiddingAgent, NegotiationAgent
 from src.market.market_threshold import dynamic_market_threshold
+from src.utils.logger import logger
 
-# ✅ Load OpenAI API Key from Environment Variables
+# Load OpenAI API Key from Environment Variables
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
@@ -26,8 +27,10 @@ class BiddingSimulation:
         self.current_threshold = initial_threshold
         self.bid_history = []
         self.data_file = data_file
+        logger.info("Bidding simulation initialized.")
 
     def run_simulation(self):
+        logger.info("Simulation started...")
         """Executes the bidding simulation with AI-powered insights and negotiation steps."""
         for round_num in range(1, self.rounds + 1):
             print(f"\n🛒 Round {round_num} - Market Threshold: {self.current_threshold}")
@@ -36,7 +39,7 @@ class BiddingSimulation:
             for agent in self.agents:
                 bid = agent.generate_bid(self.current_threshold, self.rounds - round_num)
                 
-                # ✅ Integrate AI Assistance for Better Bidding Strategy
+                # Integrate AI Assistance for Better Bidding Strategy
                 ai_suggestion = self.get_ai_bid_suggestion(agent.name, self.current_threshold, self.rounds - round_num)
                 if ai_suggestion:
                     bid = (bid + ai_suggestion) / 2  # Hybrid AI + RL bidding strategy
@@ -45,7 +48,7 @@ class BiddingSimulation:
 
             self.bid_history.append(bids)
 
-            # ✅ Fix: AI-Assisted Negotiation
+            #  Fix: AI-Assisted Negotiation
             for agent in self.agents:
                 if isinstance(agent, NegotiationAgent): 
                     bid = agent.negotiate(bids, self.current_threshold)
@@ -53,12 +56,12 @@ class BiddingSimulation:
 
             winning_bid = min(bids.values()) if bids else None  # Assume lowest bid wins
 
-            # ✅ Fix: Move reward update inside the loop
+            # Fix: Move reward update inside the loop
             for agent in self.agents:
                 reward = 10 if bids[agent.name] == winning_bid else -5
                 agent.update_reward(reward)
 
-            # ✅ Update market threshold dynamically
+            #  Update market threshold dynamically
             self.current_threshold = dynamic_market_threshold(
                 self.current_threshold, 
                 [b for round_bids in self.bid_history for b in round_bids.values()]
@@ -66,6 +69,7 @@ class BiddingSimulation:
 
             print(f"📌 Bids: {bids}, 🏆 Winning Bid: {winning_bid}")
             self.save_bid_data(round_num, bids, winning_bid)
+            logger.info("Simulation completed.")
 
     def get_ai_bid_suggestion(self, agent_name, market_threshold, rounds_remaining):
         """AI-powered bidding strategy suggestion."""
@@ -103,7 +107,7 @@ class BiddingSimulation:
         } for agent, bid in bids.items()])
 
         df.to_csv(data_file, mode='a', header=not file_exists, index=False)  # ✅ Fix header condition
-        print(f"✅ Saved bid data for Round {round_num}")
+        print(f" Saved bid data for Round {round_num}")
 
     def summarize_results(self):
         """Displays final results of the bidding simulation."""
@@ -122,7 +126,7 @@ class BiddingSimulation:
 
 
 if __name__ == "__main__":
-    # ✅ Fix: Use DQNBiddingAgent instead of NegotiationAgent
+    # Fix: Use DQNBiddingAgent instead of NegotiationAgent
     agents = [DQNBiddingAgent(name=f"Agent {i}") for i in range(1, 6)]
     
     # Run simulation with AI-enhanced deep Q-learning agents

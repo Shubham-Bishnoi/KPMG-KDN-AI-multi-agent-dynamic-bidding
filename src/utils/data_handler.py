@@ -2,9 +2,9 @@ import os
 import pandas as pd
 import logging
 from pathlib import Path
-from src.utils.config import Config  # ✅ Import config to get the correct path
+from src.utils.config import Config  # Import config to get the correct path
 
-# ✅ Set up logging
+#  Set up logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 class DataHandler:
@@ -14,7 +14,7 @@ class DataHandler:
     def save_bid_data(round_num, bids, winning_bid):
         """Stores bid data in a single CSV file."""
         config = Config.load_config()
-        data_file = config["DATA_FILE"]  # ✅ Ensure the same file path is used
+        data_file = config["DATA_FILE"]  #  Ensure the same file path is used
 
         # Ensure `data/` directory exists before saving
         Path(os.path.dirname(data_file)).mkdir(parents=True, exist_ok=True)
@@ -22,7 +22,7 @@ class DataHandler:
         data = [{
             "Round": int(round_num),  # Ensure Round is always an integer
             "Agent": agent,
-            "Bid": round(float(bid), 4),  # ✅ Round bids to 4 decimal places
+            "Bid": round(float(bid), 4),  #  Round bids to 4 decimal places
             "Winning_Bid": bid == winning_bid
         } for agent, bid in bids.items()]
         
@@ -33,15 +33,15 @@ class DataHandler:
 
         try:
             df.to_csv(data_file, mode='a', header=not file_exists, index=False)
-            logging.info(f"✅ Successfully saved bid data for Round {round_num}.")
+            logging.info(f"Successfully saved bid data for Round {round_num}.")
         except Exception as e:
-            logging.error(f"❌ Error saving bid data: {e}")
+            logging.error(f" Error saving bid data: {e}")
 
     @staticmethod
     def load_bid_data():
         """Loads bid data from a CSV file for analysis."""
         config = Config.load_config()
-        data_file = config["DATA_FILE"]  # ✅ Ensure correct file path
+        data_file = config["DATA_FILE"]  # Ensure correct file path
         file_path = Path(data_file)
 
         if file_path.exists() and file_path.stat().st_size > 0:
@@ -56,7 +56,7 @@ class DataHandler:
                 if "Bid" in df.columns:
                     df["Bid"] = pd.to_numeric(df["Bid"], errors='coerce')
 
-                logging.info("✅ Bid data loaded successfully.")
+                logging.info(" Bid data loaded successfully.")
                 return df
             except Exception as e:
                 logging.error(f"⚠️ Error loading bid data: {e}")
